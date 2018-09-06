@@ -56,13 +56,15 @@ class CustomFilter extends Component {
 
   handleCustomFilterSaveClick = () => {
     const { customFilterName, customFilters, allCustomFilters } = this.state;
-    this.setState({
-      allCustomFilters: [...allCustomFilters, {
-        name: customFilterName,
-        filters: customFilters
-      }],
-      ...this.clearCustomFilterForm()
-    })
+    if (customFilterName && customFilters.length) {
+      this.setState({
+        allCustomFilters: [...allCustomFilters, {
+          name: customFilterName,
+          filters: customFilters
+        }],
+        ...this.clearCustomFilterForm()
+      })
+    }
   }
 
   handleRemoveFiltersClick = (index) => {
@@ -127,7 +129,7 @@ class CustomFilter extends Component {
                       </select>
                       <input onChange={(e) => this.handleCustomFilterColumnInputChange(e, index)} />
                       <button onClick={this.handleAddMoreFiltersClick}>Add more</button>
-                      <button onClick={() => this.handleRemoveFiltersClick(index)}>Remove</button>
+                      {index !== 0 && <button onClick={() => this.handleRemoveFiltersClick(index)}>Remove</button>}
                     </div>
                   )
                 }

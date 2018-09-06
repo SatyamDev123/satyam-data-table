@@ -142,9 +142,8 @@ class App extends Component {
             <input
               id="ImportFiles"
               type="file"
-              name="photos"
-              accept="image/*,.csv,.xls,.xlsx"
-              multiple
+              name="ImportFiles"
+              accept=".csv,.xls,.xlsx"
               onChange={this.handleFilesChange}/>
           </div>
         </div>

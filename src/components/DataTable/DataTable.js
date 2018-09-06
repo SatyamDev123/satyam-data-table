@@ -136,6 +136,7 @@ class DataTable extends Component {
               </div>
             )
           }
+          {!rows.length && <div className="flex-r-center m-20">No data found</div>}
         </div>
       </div>
     )
